@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Indie Flower", cursive;
+}
+
+.title {
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  background-color: #ED4957;
+}
+
+.todo-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.todo-form__input {
+  padding: 10px 30% 10px 10px;
+  margin-right: 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #ed495788;
+  outline: none;
+}
+.todo-form__input::placeholder {
+  font-size: 15px;
+}
+.todo-form__btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #ED4957;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #ed495788;
+}
+.todo-form__btn:hover {
+  background-color: #4BA77B;
+  box-shadow: 3px 3px 10px #4ba77b86;
+}
+
+.item-container__title {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.item-container__list {
+  width: 80%;
+  padding: 10px;
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px #ed495788;
+}
+.item-container__list__item {
+  font-size: 20px;
+  position: relative;
+}
+.item-container__list__item .trash-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  border-radius: 5px;
+  color: #ed495788;
+}
+.item-container__list__item .trash-icon:hover {
+  background-color: rgba(76, 0, 130, 0.322);
+}
+.item-container__list__item .checkbox {
+  color: #ed495788;
+  width: 15px;
+  height: 15px;
+}
+.item-container__list__item .checkbox--done {
+  background-color: #ed495788;
+}
+.item-container__list__item .details {
+  border: 2px solid #ED4957;
+  width: 60%;
+  padding: 10px;
+  margin-left: 20px;
+  transition: 2s ease-in;
+}
+
+/*# sourceMappingURL=styles.css.map */
