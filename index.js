@@ -1,6 +1,6 @@
-import StorageApi from './todoList/assets/Utils/StorageApi.js'
+import StorageApi from './utils/StorageApi.js'
 import LIST from './TodoList.js'
-import { renderList } from './todoList/assets/Utils/dom.js'
+import { renderList } from './utils/dom.js'
 
 const storage = new StorageApi()
 const URL = 'https://jsonplaceholder.typicode.com/todos'
