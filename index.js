@@ -4,7 +4,6 @@ import { renderList } from './utils/dom.js'
 const URL = 'https://jsonplaceholder.typicode.com/todos'
 
 window.addEventListener('load', () => {
-    localStorage.clear()
     if (LIST.getItems('todos')) {
         renderList(LIST.getItems('todos'))
     } else {
