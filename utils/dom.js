@@ -3,12 +3,13 @@ import LIST from '../TodoList.js'
 
 const form = document.querySelector('#todoForm')
 const todoList = document.querySelector('#todoList')
+const LIST_KEY = 'todos'
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     let value = e.target[0].value
     if (value !== '') {
-        LIST.addNewItem(value)
+        LIST.addNewItem(LIST_KEY, value)
     } 
 })
 
@@ -24,11 +25,11 @@ function manageList() {
     LIs.forEach(li => li.addEventListener('click', (e) => {
         if (e.target.className.includes('checkbox')) {
             e.target.classList.toggle('checkbox--done')
-            LIST.toggleItemStatus('todos', +li.id)
+            LIST.toggleItemStatus(LIST_KEY, +li.id)
         }
 
         if (e.target.className.includes('trash-icon')) {
-            LIST.deleteItem('todos', +li.id)
+            LIST.deleteItem(LIST_KEY, +li.id)
         }
 
         if(e.target.tagName === 'LI') {

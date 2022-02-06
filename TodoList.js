@@ -15,17 +15,17 @@ class TodoList {
     
     deleteItem(listKey, id) {
         let filtered = this.getItems(listKey).filter(item => item.id !== id)
-        this.updateList('todos', filtered)
+        this.updateList(listKey, filtered)
     }
        
     toggleItemStatus(listKey, id) {
         let updated = this.getItems(listKey)
                           .map(item => item.id === id ? { ...item, completed: !item.completed } : item)
      
-        this.updateList('todos', updated)
+        this.updateList(listKey, updated)
     }
     
-    addNewItem(value) {     
+    addNewItem(listKey, value) {     
         let item = {
             title: value,
             userId: 1,
@@ -33,8 +33,8 @@ class TodoList {
             id: Math.floor(Math.random() * 100 + 100)
         }
     
-        let updated = [ ...this.getItems('todos'), item]
-        this.updateList('todos', updated)
+        let updated = [ ...this.getItems(listKey), item]
+        this.updateList(listKey, updated)
     }
 
     updateList(listKey, items) {
