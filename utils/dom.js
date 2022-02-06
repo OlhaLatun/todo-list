@@ -24,11 +24,11 @@ function manageList() {
     LIs.forEach(li => li.addEventListener('click', (e) => {
         if (e.target.className.includes('checkbox')) {
             e.target.classList.toggle('checkbox--done')
-            LIST.toggleItemStatus(+li.id)
+            LIST.toggleItemStatus('todos', +li.id)
         }
 
         if (e.target.className.includes('trash-icon')) {
-            LIST.deleteItem(+li.id)
+            LIST.deleteItem('todos', +li.id)
         }
 
         if(e.target.tagName === 'LI') {

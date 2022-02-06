@@ -4,27 +4,25 @@ const storage = new StorageApi()
 
 class TodoList {
    
-    getItems() {
-        return JSON.parse(storage.getItem('todos'))
+    getItems(key) {
+        return JSON.parse(storage.getItem(key))
     }
     
-    setItems(items) {
-        storage.setItem('todos', items)
+    setItems(key, items) {
+        storage.setItem(key, items)
     }  
     
     
-    deleteItem(id) {
-        let items = this.getItems()
-        let filtered = items.filter(item => item.id !== id)
-     
-        this.updateList(filtered)
+    deleteItem(listKey, id) {
+        let filtered = this.getItems(listKey).filter(item => item.id !== id)
+        this.updateList('todos', filtered)
     }
        
-    toggleItemStatus(id) {
-        let items = this.getItems()
-        let updated = items.map(item => item.id === id ? { ...item, completed: !item.completed } : item)
+    toggleItemStatus(listKey, id) {
+        let updated = this.getItems(listKey)
+                          .map(item => item.id === id ? { ...item, completed: !item.completed } : item)
      
-        this.updateList(updated)
+        this.updateList('todos', updated)
     }
     
     addNewItem(value) {     
@@ -35,14 +33,12 @@ class TodoList {
             id: Math.floor(Math.random() * 100 + 100)
         }
     
-        let items = this.getItems()
-        let updated = [ ...items, item]
-    
-        this.updateList(updated)
+        let updated = [ ...this.getItems('todos'), item]
+        this.updateList('todos', updated)
     }
 
-    updateList(items) {
-        this.setItems(items)
+    updateList(listKey, items) {
+        this.setItems(listKey, items)
         renderList(items)
     }
 }
